@@ -1,0 +1,86 @@
+{
+  "name": "@_linked/sioc",
+  "description": "SIOC (Semantically-Interlinked Online Communities) vocabulary as @linkedShape classes — UserAccount, Site, Space, Container, Item, Role, Usergroup. Renamed from lincd-sioc (plan-011).",
+  "author": {
+    "name": "",
+    "email": "",
+    "url": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "version": "1.0.4",
+  "linkedPackage": true,
+  "main": "lib/index.js",
+  "types": "dist/linked-sioc.d.ts",
+  "license": "ISC",
+  "scripts": {
+    "start": "npm exec linked dev",
+    "build": "rimraf ./lib && yarn build-esm && yarn build-cjs && yarn copy-to-lib && yarn dual-package",
+    "build-esm": "echo \"compiling ESM\" && rimraf ./lib/esm && yarn tsc -p tsconfig-esm.json",
+    "build-cjs": "echo \"compiling CJS\" && rimraf ./lib/cjs && yarn tsc -p tsconfig-cjs.json",
+    "copy-to-lib": "echo 'copying CSS + JSON assets to lib folder' && yarn copyfiles -u 1 'src/**/*.css' 'src/**/*.json' lib/esm && yarn copyfiles -u 1 'src/**/*.css' 'src/**/*.json' lib/cjs",
+    "dual-package": "echo 'adding package.json to each lib folder for dual output support' && yarn tsconfig-to-dual-package ./tsconfig-cjs.json ./tsconfig-esm.json"
+  },
+  "keywords": [
+    "linked",
+    "linked code",
+    "linked data",
+    "interoperable",
+    "semantic web",
+    "sioc",
+    "web3"
+  ],
+  "module": "lib/esm/index.js",
+  "exports": {
+    ".": {
+      "types": "./lib/esm/index.d.ts",
+      "development": "./src/index.ts",
+      "import": "./lib/esm/index.js",
+      "require": "./lib/cjs/index.js"
+    },
+    "./*.js": {
+      "types": "./lib/esm/*.d.ts",
+      "development": "./src/*.ts",
+      "import": "./lib/esm/*.js",
+      "require": "./lib/cjs/*.js"
+    },
+    "./*": {
+      "types": "./lib/esm/*.d.ts",
+      "development": "./src/*.ts",
+      "import": "./lib/esm/*.js",
+      "require": "./lib/cjs/*.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "lib/esm/*"
+      ]
+    }
+  },
+  "dependencies": {
+    "@_linked/core": "*",
+    "@_linked/dcmi": "*",
+    "@_linked/react": "*",
+    "@_linked/schema": "*",
+    "@_linked/xsd": "*",
+    "foaf": "~1.0",
+    "lincd-rdfs": "~1.0"
+  },
+  "devDependencies": {
+    "@_linked/cli": "^1.2",
+    "@changesets/changelog-github": "^0.5.2",
+    "@changesets/cli": "^2.29.8",
+    "@types/node": "^22.13.14",
+    "copyfiles": "^2.4.1",
+    "rimraf": "^5.0.7",
+    "tsconfig-to-dual-package": "^1.2.0",
+    "typescript": "5.7.3",
+    "typescript-plugin-css-modules": "^5.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

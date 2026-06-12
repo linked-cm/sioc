@@ -1,17 +1,16 @@
 import type { NodeReferenceValue } from '@_linked/core/utils/NodeReference';
 import { literalProperty, objectProperty } from '@_linked/core/shapes/SHACL';
+import { Shape } from '@_linked/core/shapes/Shape';
 import { linkedShape, packageName } from '../package.js';
 import { sioc } from '../ontologies/sioc.js';
-import { Person } from 'foaf/shapes/Person';
 import { Person as SchemaPerson } from '@_linked/schema/shapes/Person';
 import { Usergroup } from './Usergroup.js';
 import { Space } from './Space.js';
 import { Role } from './Role.js';
 import { Container } from './Container.js';
-import { Resource } from 'lincd-rdfs/shapes';
 
 @linkedShape
-export class UserAccount extends Resource {
+export class UserAccount extends Shape {
   static targetClass = sioc.UserAccount;
 
   @objectProperty({
@@ -95,7 +94,11 @@ export class UserAccount extends Resource {
     return '';
   }
 
-  static getAccountOf<T extends UserAccount = UserAccount>(_person: Person): T {
+  static getAccountOf<T extends UserAccount = UserAccount>(_person: unknown): T {
+    // Parameter type was `foaf:Person` before plan-011 phase 4 (the
+    // legacy foaf dep was dropped from @_linked/sioc). The body still
+    // throws — when this is actually migrated, retype the parameter to
+    // `SchemaPerson` (or whatever the new Person abstraction is).
     throw new Error(
       'UserAccount.getAccountOf(...) depends on legacy inverse traversal and has not been migrated yet.'
     );

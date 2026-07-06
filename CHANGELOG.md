@@ -1,5 +1,11 @@
 # @\_linked/sioc
 
+## 1.2.1
+
+### Patch Changes
+
+- [#3](https://github.com/linked-cm/sioc/pull/3) [`ed6e99a`](https://github.com/linked-cm/sioc/commit/ed6e99a825614ba79d75ce6003a7d55992b39ffe) Thanks [@flyon](https://github.com/flyon)! - loadData: ESM-only JSON import — drop the dead CJS branch, add the `{ with: { type: 'json' } }` import attribute.
+
 ## 1.2.0
 
 ### Minor Changes

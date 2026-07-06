@@ -5,9 +5,6 @@ import * as _this from './sioc.js';
 
 const dataFile = '../data/sioc.json';
 export var loadData = () => {
-  if (typeof module !== 'undefined' && typeof exports !== 'undefined') {
-    return import('../data/sioc.json');
-  }
   //@ts-ignore
   return import('../data/sioc.json', { with: { type: 'json' } }).then(
     (data) => data.default

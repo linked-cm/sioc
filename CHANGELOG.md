@@ -1,5 +1,11 @@
 # @\_linked/sioc
 
+## 1.2.0
+
+### Minor Changes
+
+- [#2](https://github.com/linked-cm/sioc/pull/2) [`7af8cc4`](https://github.com/linked-cm/sioc/commit/7af8cc4a5c8da61336b57ed3ff5142cebb54fb5a) Thanks [@flyon](https://github.com/flyon)! - ESM-only. Dropped the CommonJS build; ships ES modules only (`type: module`, no `require` export condition, no `lib/cjs`). Fixed the root `types` field. CJS consumers on Node 22+ can `require()` it (sync ESM) or use dynamic `import()`.
+
 ## 1.1.0
 
 ### Minor Changes

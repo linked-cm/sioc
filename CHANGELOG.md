@@ -1,5 +1,11 @@
 # @\_linked/sioc
 
+## 1.2.2
+
+### Patch Changes
+
+- [#6](https://github.com/linked-cm/sioc/pull/6) [`0389118`](https://github.com/linked-cm/sioc/commit/0389118f989dfd65c04be7a1490ee95909e39ef9) Thanks [@flyon](https://github.com/flyon)! - Remove the `development` export condition (pointed at `src`, which isn't shipped to npm). Monorepo dev resolves workspace source via the cli Vite plugin; standalone resolves `import → lib`. No consumer-visible change.
+
 ## 1.2.1
 
 ### Patch Changes

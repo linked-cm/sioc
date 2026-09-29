@@ -4,8 +4,15 @@ import { Shape } from '@_linked/core/shapes/Shape';
 import { linkedShape, packageName } from '../package.js';
 import { sioc } from '../ontologies/sioc.js';
 import { Person as SchemaPerson } from '@_linked/schema/shapes/Person';
-import { Usergroup } from './Usergroup.js';
-import { Space } from './Space.js';
+import type { Usergroup } from './Usergroup.js';
+import type { Space } from './Space.js';
+// Space, Usergroup and UserAccount reference each other, so they name each other
+// by [package, name] (a class reference would read a binding that is not yet
+// initialised when the cycle is entered from the other side) and import each
+// other for the side effect: naming a shape does not register it, and a query
+// that traverses to an unregistered shape throws "Shape class not found".
+import './Usergroup.js';
+import './Space.js';
 import { Role } from './Role.js';
 import { Container } from './Container.js';
 
@@ -68,7 +75,7 @@ export class UserAccount extends Shape {
 
   @objectProperty({
     path: sioc.account_of,
-    shape: ['@_linked/schema', 'Person'],
+    shape: SchemaPerson,
     maxCount: 1,
   })
   get accountOf(): SchemaPerson {
@@ -81,7 +88,7 @@ export class UserAccount extends Shape {
 
   @objectProperty({
     path: sioc.member_of,
-    shape: Usergroup,
+    shape: [packageName, 'Usergroup'],
   })
   get userGroups(): Usergroup[] {
     return [];

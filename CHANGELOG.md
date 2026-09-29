@@ -1,5 +1,11 @@
 # @\_linked/sioc
 
+## 1.3.1
+
+### Patch Changes
+
+- [#21](https://github.com/linked-fw/sioc/pull/21) [`c8b623b`](https://github.com/linked-fw/sioc/commit/c8b623bc5b181d7d116fde9613ec81ae127b0cbf) Thanks [@flyon](https://github.com/flyon)! - Sourcemaps now embed their TypeScript source, so consumers no longer see 'points to missing source files' warnings.
+
 ## 1.3.0
 
 ### Minor Changes

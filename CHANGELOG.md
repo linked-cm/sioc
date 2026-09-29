@@ -1,5 +1,21 @@
 # @\_linked/sioc
 
+## 1.3.2
+
+### Patch Changes
+
+- [#29](https://github.com/linked-fw/sioc/pull/29) [`252f0e7`](https://github.com/linked-fw/sioc/commit/252f0e7f50a70272856c6ccb796c64b8a83385e8) Thanks [@flyon](https://github.com/flyon)! - Fix shape references that could never resolve, and register what they name.
+
+  Space and Usergroup named their value shapes under the package's old name
+  (`['lincd-sioc', …]`), so `Space.usergroups`, `Usergroup.members` and
+  `Usergroup.spaces` pointed at `…/shape/lincd-sioc/…` IRIs that no shape has. They
+  now use this package's name.
+
+  Space, Usergroup and UserAccount also import each other for the side effect: naming
+  a shape does not register it, so loading one of them alone left the others
+  unregistered and a query traversing to them threw `Shape class not found`.
+  `UserAccount.accountOf` references schema's Person class directly.
+
 ## 1.3.1
 
 ### Patch Changes

@@ -63,7 +63,7 @@
   },
   "devDependencies": {
     "@_linked/cli": "^1.2",
-    "@changesets/changelog-github": "^0.5.2",
+    "@changesets/changelog-github": "^0.7.0",
     "@changesets/cli": "^3.0.0",
     "@types/node": "^22.13.14",
     "copyfiles": "^2.4.1",

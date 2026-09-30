@@ -1,5 +1,11 @@
 # @\_linked/sioc
 
+## 1.3.3
+
+### Patch Changes
+
+- [#31](https://github.com/linked-fw/sioc/pull/31) [`c27cbe1`](https://github.com/linked-fw/sioc/commit/c27cbe108efb9d42fd9dcb547d39d867fe8e362c) Thanks [@flyon](https://github.com/flyon)! - Add `shapes/index`, a side-effect-only module that registers every shape this package defines and nothing else (no components, no CSS), so `import '@_linked/sioc/shapes/index'` loads the shapes in plain node as well as in a bundle. The package entry now imports it instead of listing shapes one by one.
+
 ## 1.3.2
 
 ### Patch Changes

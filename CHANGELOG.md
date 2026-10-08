@@ -1,5 +1,11 @@
 # @\_linked/sioc
 
+## 1.3.5
+
+### Patch Changes
+
+- [#42](https://github.com/linked-fw/sioc/pull/42) [`9a8add8`](https://github.com/linked-fw/sioc/commit/9a8add829c8f8a22da700e3c630de464d804b960) Thanks [@flyon](https://github.com/flyon)! - Publish only the files consumers need; the tarball no longer includes `.changeset/`, `.gitattributes`, `.github/`, `renovate.json` or tsconfig files.
+
 ## 1.3.4
 
 ### Patch Changes

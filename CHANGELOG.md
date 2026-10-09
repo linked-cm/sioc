@@ -1,5 +1,11 @@
 # @\_linked/sioc
 
+## 1.3.6
+
+### Patch Changes
+
+- [#45](https://github.com/linked-fw/sioc/pull/45) [`f80dd63`](https://github.com/linked-fw/sioc/commit/f80dd639f84b06a72558e4306243ff4176b0536a) Thanks [@flyon](https://github.com/flyon)! - Declares its React peer; accepts React 18 or 19. The components import `react`, which is now a `peerDependencies` entry (`^18.2.0 || ^19.0.0`) so the consumer's single React copy is used.
+
 ## 1.3.5
 
 ### Patch Changes

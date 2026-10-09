@@ -65,6 +65,9 @@
     "@_linked/schema": "^1.0",
     "@_linked/xsd": "^1.0"
   },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0"
+  },
   "devDependencies": {
     "@_linked/cli": "^1.2",
     "@changesets/changelog-github": "^1.0.0",

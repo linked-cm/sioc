@@ -1,5 +1,11 @@
 # @\_linked/sioc
 
+## 1.3.7
+
+### Patch Changes
+
+- [#47](https://github.com/linked-fw/sioc/pull/47) [`a431b80`](https://github.com/linked-fw/sioc/commit/a431b809372e6328ac14411ec94aa1d8724d5b9f) Thanks [@flyon](https://github.com/flyon)! - The `build` script is now `linked build`, the same build CI and the release workflow already run, so a local build produces the published `lib/` (compiled output, copied `src` assets and rewritten ESM import specifiers). The `build-esm` and `copy-to-lib` scripts and the `rimraf`/`copyfiles` dev dependencies are removed.
+
 ## 1.3.6
 
 ### Patch Changes
